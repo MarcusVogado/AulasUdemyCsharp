@@ -1,13 +1,27 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
+using static System.Net.Mime.MediaTypeNames;
+
 class Program
 {
+    enum Notas
+    {
+        Minimo=10,
+        Media=15,
+        Maxima = 30
+    }
+    struct Pessoa
+    {
+        public string nome;
+        public double altura;
+        public int idade;
+    }
+   
     static void Main(string[] args)
     {
         //*Region* Serve para separar blocos do código e torna-lo de facil vizualização e entendimento
-        #region Olá mundo
-        Console.WriteLine("OLÁ MUNDO");
-        #endregion
-
+       
         #region Declaração e tipos de variaveis
 
         //Integral assinado
@@ -23,5 +37,58 @@ class Program
         ulong numULong = 10L;//64 bits, de 0 a 18.446.744.073.709.551.615        
         #endregion
 
+        #region Caractere
+        char letra = 'A';
+        char letraExaDecimal = '\u0061'; // Podemos usar Código Exadecimais        
+        #endregion
+
+        #region Boolean
+        bool verificar = true;
+        verificar = false;
+        #endregion
+
+        #region Tipo String(Cadeia de Caracteres) 
+        string text = "abcdefghijklmn\nopqrstuvwxyz";
+        string menssage=text;
+        #endregion
+       
+        #region Tipo Var
+        var variavel = 15.155;
+        #endregion
+
+        #region Tipo Object(Base para todos os tipos)
+        //Tipo Object pode ser alterado pois é a base
+        //dos tipos do C# e a qualquer momento pode ser mudada
+        object obj = 10;
+        obj = 10;
+        obj = "Texto";
+
+        #endregion
+
+        #region Tipo Constantes
+        const double valor = 10;
+        const string constText = "\nMarcus";
+        #endregion
+
+        #region Enumumerações
+        Notas notasAlunos = Notas.Maxima;
+        #endregion        
+
+        #region Estruturas
+        Pessoa pessoa1 = new Pessoa();
+        pessoa1.nome = "Marcus";
+        pessoa1.altura = 1.82;
+        pessoa1.idade = 29;
+
+        Pessoa pessoa2 = new Pessoa()
+        {
+        nome = "Marcus",
+        altura = 1.82,
+        idade = 29
+        };
+        #endregion
+       
+
+        Console.Write("Nome "+pessoa1.nome+" Altura " +pessoa1.altura +" Idade "+pessoa1.idade);
     }
 }
