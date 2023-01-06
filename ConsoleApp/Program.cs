@@ -7,8 +7,8 @@ class Program
 {
     enum Notas
     {
-        Minimo=10,
-        Media=15,
+        Minimo = 10,
+        Media = 15,
         Maxima = 30
     }
     struct Pessoa
@@ -17,11 +17,12 @@ class Program
         public double altura;
         public int idade;
     }
-   
+    
+    
     static void Main(string[] args)
     {
         //*Region* Serve para separar blocos do código e torna-lo de facil vizualização e entendimento
-       
+
         #region Declaração e tipos de variaveis
 
         //Integral assinado
@@ -49,9 +50,9 @@ class Program
 
         #region Tipo String(Cadeia de Caracteres) 
         string text = "abcdefghijklmn\nopqrstuvwxyz";
-        string menssage=text;
+        string menssage = text;
         #endregion
-       
+
         #region Tipo Var
         var variavel = 15.155;
         #endregion
@@ -62,7 +63,6 @@ class Program
         object obj = 10;
         obj = 10;
         obj = "Texto";
-
         #endregion
 
         #region Tipo Constantes
@@ -82,13 +82,92 @@ class Program
 
         Pessoa pessoa2 = new Pessoa()
         {
-        nome = "Marcus",
-        altura = 1.82,
-        idade = 29
+            nome = "Marcus",
+            altura = 1.82,
+            idade = 29
         };
         #endregion
-       
 
-        Console.Write("Nome "+pessoa1.nome+" Altura " +pessoa1.altura +" Idade "+pessoa1.idade);
+
+
+        InverterNomes();
     }
+
+    static void EntradaSaida()
+    {
+        Console.WriteLine("\nMarcus");
+        Console.Write("Vogado do Lago");
+        int numTeste = int.Parse(Console.ReadLine());
+        Console.WriteLine("Você Digitou: " + numTeste);
+        Console.ReadKey();
+    }    
+
+    static void InverterNomes()
+    {
+     
+
+    string pergunta = "S";
+
+        // List<Nomes> nome = new List<Nomes>();
+        List<string> nome = new List<string>();
+        while (pergunta == "S")
+        {
+            Console.WriteLine("DIGITE UM NOME");
+            nome.Add(Console.ReadLine());   
+            Console.WriteLine("DESEJA ADIGICONAR MAIS NOMES? S/N?");
+            pergunta = Console.ReadLine().ToUpper();
+            while(pergunta!="N" && pergunta != "S"){
+                Console.WriteLine("OPÇÃO ERRADA, ESCOLHA S/N PARA CONTINUAR OU FECHAR O PROGRAMA");
+                pergunta=Console.ReadLine();
+            }
+        }
+        foreach(string nomes in nome)
+        {
+            Console.WriteLine("Nomes Didigitados= " + nomes);
+        }
+       
+    }
+
+    static void Conversores()
+    {
+        #region Conversão Implícita
+        byte numByte = 100;
+        ushort numShort;
+        numShort = numByte;
+        float numFloat=1250.45f;
+        double numDouble = numFloat;
+        #endregion
+        
+        #region Conversão Explícita
+        ushort num1 = 1000;
+        byte num2 = (byte)num1;
+
+        float num3 = 2500.589f;
+        int num4 = (int)num3;
+
+        #endregion
+
+        #region Método Parse
+        try
+        {
+            string txtNumero = "1985Ase";
+            int numero = int.Parse(txtNumero);
+            Console.WriteLine(numero);
+            Console.ReadKey();
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e.Message);
+            //Colocando letra no txtNumero ele gera um erro, e o Try catch está tratando esse erro.
+        }
+       
+        #endregion
+
+         
+    }
+
 }
+public class Nomes {
+    public string Nome { get; set; }
+}
+
