@@ -17,8 +17,7 @@ class Program
         public double altura;
         public int idade;
     }
-    
-    
+
     static void Main(string[] args)
     {
         //*Region* Serve para separar blocos do código e torna-lo de facil vizualização e entendimento
@@ -88,9 +87,8 @@ class Program
         };
         #endregion
 
-
-
-        InverterNomes();
+        VeficcarMaiorIdade();
+        
     }
 
     static void EntradaSaida()
@@ -100,32 +98,33 @@ class Program
         int numTeste = int.Parse(Console.ReadLine());
         Console.WriteLine("Você Digitou: " + numTeste);
         Console.ReadKey();
-    }    
+    }
 
     static void InverterNomes()
     {
-     
 
-    string pergunta = "S";
+
+        string pergunta = "S";
 
         // List<Nomes> nome = new List<Nomes>();
         List<string> nome = new List<string>();
         while (pergunta == "S")
         {
             Console.WriteLine("DIGITE UM NOME");
-            nome.Add(Console.ReadLine());   
+            nome.Add(Console.ReadLine());
             Console.WriteLine("DESEJA ADIGICONAR MAIS NOMES? S/N?");
             pergunta = Console.ReadLine().ToUpper();
-            while(pergunta!="N" && pergunta != "S"){
+            while (pergunta != "N" && pergunta != "S")
+            {
                 Console.WriteLine("OPÇÃO ERRADA, ESCOLHA S/N PARA CONTINUAR OU FECHAR O PROGRAMA");
-                pergunta=Console.ReadLine();
+                pergunta = Console.ReadLine();
             }
         }
-        foreach(string nomes in nome)
+        foreach (string nomes in nome)
         {
             Console.WriteLine("Nomes Didigitados= " + nomes);
         }
-       
+
     }
 
     static void Conversores()
@@ -134,10 +133,10 @@ class Program
         byte numByte = 100;
         ushort numShort;
         numShort = numByte;
-        float numFloat=1250.45f;
+        float numFloat = 1250.45f;
         double numDouble = numFloat;
         #endregion
-        
+
         #region Conversão Explícita
         ushort num1 = 1000;
         byte num2 = (byte)num1;
@@ -155,19 +154,47 @@ class Program
             Console.WriteLine(numero);
             Console.ReadKey();
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Console.WriteLine(e.Message);
             //Colocando letra no txtNumero ele gera um erro, e o Try catch está tratando esse erro.
         }
-       
+
         #endregion
 
-         
+
     }
 
+    static void VeficcarMaiorIdade()
+    {
+        List<Usuario> pessoas = new List<Usuario>();
+        pessoas.Add(new Usuario() { Nome = "Sergio", Idade = 24 });
+        pessoas.Add(new Usuario() { Nome = "Marcus", Idade = 30 });
+        pessoas.Add(new Usuario() { Nome = "Carlos", Idade = 35 });
+        pessoas.Add(new Usuario() { Nome = "José", Idade = 29 });
+        pessoas.Add(new Usuario() { Nome = "Alberto", Idade = 55 });
+        IEnumerable<Usuario> maiorIdade = pessoas.OrderBy(u => u.Idade);
+        Console.WriteLine("***************************************");
+        Console.WriteLine("A pessoa com a maior idade da lista é o: " + maiorIdade.Last().Nome + " Com a idade de: " + maiorIdade.Last().Idade + " Anos");
+        Console.WriteLine("***************************************");
+        Console.WriteLine("A pessoa com a menor idade da lista é o: " + maiorIdade.First().Nome + " Com a idade de: " + maiorIdade.First().Idade + " Anos");
+        Console.WriteLine("***************************************");
+        Console.WriteLine("Lista De Usuários e suas idades");
+        Console.WriteLine("***************************************");
+        foreach (Usuario maior in maiorIdade)
+        {
+
+            Console.WriteLine(maior.Nome + ' ' + maior.Idade);
+        }
+    }
 }
-public class Nomes {
+public class Nomes
+{
     public string Nome { get; set; }
+}
+public class Usuario
+{
+    public string Nome { get; set; }
+    public int Idade { get; set; }
 }
 
