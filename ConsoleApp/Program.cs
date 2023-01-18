@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.Security;
 using System.Security.Cryptography;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -87,8 +88,13 @@ class Program
         };
         #endregion
 
-        VeficcarMaiorIdade();
-        
+        #region Valor e Referencia
+        /* int num = 10;
+         PassagemValorReferencia(ref num);
+         Console.WriteLine(num);
+         //Se não utilizarmos o ref ele não irar imprimir o resultado do método que seria 20. */
+        #endregion
+        CalcularIMC();
     }
 
     static void EntradaSaida()
@@ -100,13 +106,11 @@ class Program
         Console.ReadKey();
     }
 
-    static void InverterNomes()
+    static void CadastrarImprimeNomes()
     {
 
 
-        string pergunta = "S";
-
-        // List<Nomes> nome = new List<Nomes>();
+        string pergunta = "S";               
         List<string> nome = new List<string>();
         while (pergunta == "S")
         {
@@ -165,7 +169,7 @@ class Program
 
     }
 
-    static void VeficcarMaiorIdade()
+    static void VeficcarMaiorIdadeLista()
     {
         List<Usuario> pessoas = new List<Usuario>();
         pessoas.Add(new Usuario() { Nome = "Sergio", Idade = 24 });
@@ -187,6 +191,147 @@ class Program
             Console.WriteLine(maior.Nome + ' ' + maior.Idade);
         }
     }
+
+    static void VetoresUnidimensional()
+    {
+        //Vetor ou Array -Coleção de dados do mesmo tipo ex Int ou Strings
+        int[] numeros = new int[5];
+        numeros[0] = 10;
+        numeros[1] = 15;
+        numeros[2] = 20;
+        numeros[3] = 25;
+        numeros[4] = 30;
+
+        int[] numeros2 =
+        {
+            10,
+            15,
+            20,
+            25,
+            30
+        };
+
+        foreach (int numero in numeros)
+        {
+            Console.WriteLine(numero);
+        }
+
+        string[] nomes =
+        {
+            "marcus",
+            "junior",
+            "theo"
+        };
+
+        foreach (string nome in nomes)
+        {
+            Console.WriteLine(nome);
+        }
+    }
+
+    static void VetoresBidimencilnal()
+    {
+        //Podendo ter varias dimenções, precisamos informar indice da linha e coluna do item em questão
+        //Virgula na declaração separa a Linha e a coluna
+        int[,] numeros = new int[2, 3];
+
+        numeros[0,0] = 10;
+        numeros[0,1] = 15;
+        numeros[0,2] = 20;
+
+        numeros[1,0] = 25;
+        numeros[1,1] = 30;
+        numeros[1,2] = 35;
+
+        Console.WriteLine("["+numeros[0, 1]+"]");
+        string[,] nomes =
+        {
+            {
+                "Marcus","Daniel","Pedro"
+            },
+            {
+                "Alberto","Mario","Carlos"
+            }
+            // Ao Declarar os elentos da primeira linha e coluna precisamos igualar a quantidade de elementos em todas as colunas.
+        };
+        Console.WriteLine("["+nomes[0, 1]+"]");
+
+    }
+
+    static void PassagemValorReferencia( ref int valor)
+    {
+        valor *= 2;
+        // utilizando o ref estamos usando a referencia, assim ele
+        // não irar criar outra variavel na memoria mas utilizarar o endereço da variavel passada na chamada do método.
+        // para utilizar o valor e não referencia basta retirar o ref. assim a variavel receberar outro endereço na memória e não sera impresso o resultado 20
+    }
+
+    static void MultiplicarMatrizes()
+    {
+        int[,]matriz1=new int[2,3];
+        int[,]matriz2=new int[3,2];
+        int[,] matrizResultado = new int[2, 2];
+        Console.WriteLine("Preencha a Matriz1");
+        for(int linha = 0; linha < 2; linha++)
+        {
+            for (int coluna = 0; coluna < 3; coluna++)
+            {
+                Console.Write("#1 Matriz.Posição: ["+linha+"-"+coluna+"]");
+                matriz1[linha, coluna]=int.Parse(Console.ReadLine());
+            }
+        }
+        Console.WriteLine("Preencha a Matriz2\n");
+        for (int linha = 0; linha < 3; linha++)
+        {
+            for (int coluna = 0; coluna < 2; coluna++)
+            {
+                Console.Write("#1 Matriz.Posição: [" + linha + "-" + coluna + "]");
+                matriz2[linha, coluna] = int.Parse(Console.ReadLine());
+            }
+        }
+        Console.WriteLine("\n Resultado da matriz 1# x matriz 2#");
+        matrizResultado[0,0]= (matriz1[0, 0] * matriz2[0, 0]) + (matriz1[0, 1] * matriz2[1,0])+(matriz1[0, 2] * matriz2[2,0]);
+        matrizResultado[1, 0] = (matriz1[1, 0] * matriz2[0, 0]) + (matriz1[1, 1] * matriz2[1, 0]) + (matriz1[1, 2] * matriz2[2, 0]);
+        matrizResultado[0, 1] = (matriz1[0, 0] * matriz2[0, 1]) + (matriz1[0, 1] * matriz2[1, 1]) + (matriz1[0, 2] * matriz2[2, 1]);
+        matrizResultado[1,1] = (matriz1[1, 0] * matriz2[0, 1]) + (matriz1[1, 1] * matriz2[1, 1]) + (matriz1[1, 2] * matriz2[2, 1]);
+
+        Console.WriteLine("[" + matrizResultado[0,0] +"] [" + matrizResultado[0,1] +"]");
+        Console.WriteLine("[" + matrizResultado[1, 0] + "] [" + matrizResultado[1, 1] + "]");
+        Console.ReadKey();
+    }
+    #region Utilizando Estrutura Condicionais if else elseif
+    static void CalcularIMC()
+    {
+        Console.WriteLine("Informe o peso em Kg: ");        
+        double peso= double.Parse(Console.ReadLine());
+        Console.WriteLine("Informe a altura em metros");
+        double altura = double.Parse(Console.ReadLine());
+        double valorImc = peso / (altura * altura);
+
+        if (valorImc < 20)
+        {
+            Console.WriteLine("\n IMC= " + valorImc + "-> Abaixo do Peso");
+        }
+        else if(valorImc >=20 && valorImc <=24)
+        {
+            Console.WriteLine("\n IMC= " + valorImc + "-> Peso Normal");
+        }
+        else if(valorImc >= 25 && valorImc <= 29)
+        {
+            Console.WriteLine("\n IMC= " + valorImc + "-> Acima do Peso");
+        }
+        else if(valorImc >= 30 && valorImc <= 34)
+        {
+            Console.WriteLine("\n IMC= " + valorImc + "-> Você está Obeso");            
+        }
+        else
+        {
+            Console.WriteLine("\nIMC = " + valorImc +"Você Muito Obeso");
+        }
+        Console.ReadKey();
+    }
+    #endregion
+   
 }
 public class Nomes
 {
