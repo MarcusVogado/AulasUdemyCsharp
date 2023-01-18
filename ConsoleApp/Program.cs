@@ -94,7 +94,7 @@ class Program
          Console.WriteLine(num);
          //Se não utilizarmos o ref ele não irar imprimir o resultado do método que seria 20. */
         #endregion
-        CalcularIMC();
+       Goto();
     }
 
     static void EntradaSaida()
@@ -299,6 +299,7 @@ class Program
         Console.WriteLine("[" + matrizResultado[1, 0] + "] [" + matrizResultado[1, 1] + "]");
         Console.ReadKey();
     }
+
     #region Utilizando Estrutura Condicionais if else elseif
     static void CalcularIMC()
     {
@@ -331,7 +332,51 @@ class Program
         Console.ReadKey();
     }
     #endregion
-   
+   static void SwitchCase()
+    {
+        int escolha = 2;
+        switch (escolha)
+        {
+            default:
+                Console.WriteLine("Opção Default");
+                break;
+            case 1:
+                Console.WriteLine("Opção 1");
+                break;
+            case 2:
+                Console.WriteLine("Opção 2");
+                break;
+            case 3:  
+            case 4:
+                Console.WriteLine("Opção Combinada");
+                break;
+
+        }
+        Console.ReadKey();
+    }
+
+    static void Goto()
+    {
+        inicio:
+        Console.WriteLine("Escolha um opção: ");
+        int op=int.Parse(Console.ReadLine());
+        int valor=0 ;
+        
+        switch (op)
+        {
+            default:
+                Console.WriteLine("Opção invalida Tente novamente");
+                goto inicio;
+            case 1:
+                valor += 100;
+                break;
+            case 2:
+                valor += 50;
+                goto case 1;
+        }
+        Console.WriteLine($"Valor Final= {valor}");
+    }
+
 }
 public class Nomes
 {
