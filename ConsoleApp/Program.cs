@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Security;
 using System.Security.Cryptography;
 using static System.Net.Mime.MediaTypeNames;
@@ -94,7 +95,8 @@ class Program
          Console.WriteLine(num);
          //Se não utilizarmos o ref ele não irar imprimir o resultado do método que seria 20. */
         #endregion
-       Goto();
+
+        
     }
 
     static void EntradaSaida()
@@ -110,7 +112,7 @@ class Program
     {
 
 
-        string pergunta = "S";               
+        string pergunta = "S";
         List<string> nome = new List<string>();
         while (pergunta == "S")
         {
@@ -235,15 +237,15 @@ class Program
         //Virgula na declaração separa a Linha e a coluna
         int[,] numeros = new int[2, 3];
 
-        numeros[0,0] = 10;
-        numeros[0,1] = 15;
-        numeros[0,2] = 20;
+        numeros[0, 0] = 10;
+        numeros[0, 1] = 15;
+        numeros[0, 2] = 20;
 
-        numeros[1,0] = 25;
-        numeros[1,1] = 30;
-        numeros[1,2] = 35;
+        numeros[1, 0] = 25;
+        numeros[1, 1] = 30;
+        numeros[1, 2] = 35;
 
-        Console.WriteLine("["+numeros[0, 1]+"]");
+        Console.WriteLine("[" + numeros[0, 1] + "]");
         string[,] nomes =
         {
             {
@@ -254,11 +256,11 @@ class Program
             }
             // Ao Declarar os elentos da primeira linha e coluna precisamos igualar a quantidade de elementos em todas as colunas.
         };
-        Console.WriteLine("["+nomes[0, 1]+"]");
+        Console.WriteLine("[" + nomes[0, 1] + "]");
 
     }
 
-    static void PassagemValorReferencia( ref int valor)
+    static void PassagemValorReferencia(ref int valor)
     {
         valor *= 2;
         // utilizando o ref estamos usando a referencia, assim ele
@@ -268,16 +270,16 @@ class Program
 
     static void MultiplicarMatrizes()
     {
-        int[,]matriz1=new int[2,3];
-        int[,]matriz2=new int[3,2];
+        int[,] matriz1 = new int[2, 3];
+        int[,] matriz2 = new int[3, 2];
         int[,] matrizResultado = new int[2, 2];
         Console.WriteLine("Preencha a Matriz1");
-        for(int linha = 0; linha < 2; linha++)
+        for (int linha = 0; linha < 2; linha++)
         {
             for (int coluna = 0; coluna < 3; coluna++)
             {
-                Console.Write("#1 Matriz.Posição: ["+linha+"-"+coluna+"]");
-                matriz1[linha, coluna]=int.Parse(Console.ReadLine());
+                Console.Write("#1 Matriz.Posição: [" + linha + "-" + coluna + "]");
+                matriz1[linha, coluna] = int.Parse(Console.ReadLine());
             }
         }
         Console.WriteLine("Preencha a Matriz2\n");
@@ -290,12 +292,12 @@ class Program
             }
         }
         Console.WriteLine("\n Resultado da matriz 1# x matriz 2#");
-        matrizResultado[0,0]= (matriz1[0, 0] * matriz2[0, 0]) + (matriz1[0, 1] * matriz2[1,0])+(matriz1[0, 2] * matriz2[2,0]);
+        matrizResultado[0, 0] = (matriz1[0, 0] * matriz2[0, 0]) + (matriz1[0, 1] * matriz2[1, 0]) + (matriz1[0, 2] * matriz2[2, 0]);
         matrizResultado[1, 0] = (matriz1[1, 0] * matriz2[0, 0]) + (matriz1[1, 1] * matriz2[1, 0]) + (matriz1[1, 2] * matriz2[2, 0]);
         matrizResultado[0, 1] = (matriz1[0, 0] * matriz2[0, 1]) + (matriz1[0, 1] * matriz2[1, 1]) + (matriz1[0, 2] * matriz2[2, 1]);
-        matrizResultado[1,1] = (matriz1[1, 0] * matriz2[0, 1]) + (matriz1[1, 1] * matriz2[1, 1]) + (matriz1[1, 2] * matriz2[2, 1]);
+        matrizResultado[1, 1] = (matriz1[1, 0] * matriz2[0, 1]) + (matriz1[1, 1] * matriz2[1, 1]) + (matriz1[1, 2] * matriz2[2, 1]);
 
-        Console.WriteLine("[" + matrizResultado[0,0] +"] [" + matrizResultado[0,1] +"]");
+        Console.WriteLine("[" + matrizResultado[0, 0] + "] [" + matrizResultado[0, 1] + "]");
         Console.WriteLine("[" + matrizResultado[1, 0] + "] [" + matrizResultado[1, 1] + "]");
         Console.ReadKey();
     }
@@ -303,8 +305,8 @@ class Program
     #region Utilizando Estrutura Condicionais if else elseif
     static void CalcularIMC()
     {
-        Console.WriteLine("Informe o peso em Kg: ");        
-        double peso= double.Parse(Console.ReadLine());
+        Console.WriteLine("Informe o peso em Kg: ");
+        double peso = double.Parse(Console.ReadLine());
         Console.WriteLine("Informe a altura em metros");
         double altura = double.Parse(Console.ReadLine());
         double valorImc = peso / (altura * altura);
@@ -313,26 +315,26 @@ class Program
         {
             Console.WriteLine("\n IMC= " + valorImc + "-> Abaixo do Peso");
         }
-        else if(valorImc >=20 && valorImc <=24)
+        else if (valorImc >= 20 && valorImc <= 24)
         {
             Console.WriteLine("\n IMC= " + valorImc + "-> Peso Normal");
         }
-        else if(valorImc >= 25 && valorImc <= 29)
+        else if (valorImc >= 25 && valorImc <= 29)
         {
             Console.WriteLine("\n IMC= " + valorImc + "-> Acima do Peso");
         }
-        else if(valorImc >= 30 && valorImc <= 34)
+        else if (valorImc >= 30 && valorImc <= 34)
         {
-            Console.WriteLine("\n IMC= " + valorImc + "-> Você está Obeso");            
+            Console.WriteLine("\n IMC= " + valorImc + "-> Você está Obeso");
         }
         else
         {
-            Console.WriteLine("\nIMC = " + valorImc +"Você Muito Obeso");
+            Console.WriteLine("\nIMC = " + valorImc + "Você Muito Obeso");
         }
         Console.ReadKey();
     }
     #endregion
-   static void SwitchCase()
+    static void SwitchCase()
     {
         int escolha = 2;
         switch (escolha)
@@ -346,7 +348,7 @@ class Program
             case 2:
                 Console.WriteLine("Opção 2");
                 break;
-            case 3:  
+            case 3:
             case 4:
                 Console.WriteLine("Opção Combinada");
                 break;
@@ -354,14 +356,13 @@ class Program
         }
         Console.ReadKey();
     }
-
     static void Goto()
     {
-        inicio:
+    inicio:
         Console.WriteLine("Escolha um opção: ");
-        int op=int.Parse(Console.ReadLine());
-        int valor=0 ;
-        
+        int op = int.Parse(Console.ReadLine());
+        int valor = 0;
+
         switch (op)
         {
             default:
@@ -376,15 +377,151 @@ class Program
         }
         Console.WriteLine($"Valor Final= {valor}");
     }
+    static void Calculadora()
+    {
+        Console.WriteLine("***--CALCULADORA--***");
+    inicio:
+        Console.WriteLine("INFORME O PRIMEIRO NÚMERO: ");
+        double num1 = double.Parse(Console.ReadLine());
+        Console.WriteLine("INFORME O SEGUNDO NÚMERO: ");
+        double num2 = double.Parse(Console.ReadLine());
+    operacao:
+        Console.WriteLine("INFORME A OPERAÇÃO + - * /");
+        char op = char.Parse(Console.ReadLine());
+        double resultado = 0;
 
-}
-public class Nomes
-{
-    public string Nome { get; set; }
-}
-public class Usuario
-{
-    public string Nome { get; set; }
-    public int Idade { get; set; }
-}
+        switch (op)
+        {
+            default:
+                Console.WriteLine("OPERAÇÃO INVÁLIDA");
+                goto operacao;
+            case '+':
+                resultado = num1 + num2;
+                break;
+            case '-':
+                resultado = num1 - num2;
+                break;
+            case '*':
+                resultado = num1 * num2;
+                break;
+            case '/':
+                resultado = num1 / num2;
+                break;
+        }
+        Console.WriteLine($"Resultado= {resultado}");
+        goto inicio;
+    }
+    static void Quadrante()
+    {
 
+        int x, y;
+        bool teste = true;
+        while (teste)
+        {
+            string[] s = Console.ReadLine().Split(' ');
+            var steste = s.Length;
+            try
+            {
+                if (steste > 1 && !string.IsNullOrEmpty(s[1]) && !string.IsNullOrEmpty(s[0]))
+                {
+                    x = int.Parse(s[0]);
+                    y = int.Parse(s[1]);
+                    if (x > 0 && y > 0)
+                    {
+                        Console.WriteLine("primeiro");
+                    }
+                    else if (x < 0 && y > 0)
+                    {
+                        Console.WriteLine("segundo ");
+                    }
+                    else if (x < 0 && y < 0)
+                    {
+                        Console.WriteLine("terceiro");
+                    }
+                    else if (x > 0 && y < 0)
+                    {
+                        Console.WriteLine("quarto");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("NULO, APLICAÇÃO FECHADA");
+                    break;
+                }
+            }
+            catch
+            {
+                break;
+            }
+        }
+    }
+    static void EstruturasRepeticao()
+    {
+        #region WHILE + DO WHILE
+        int whileValor = 11;
+        while (whileValor <= 10)
+        {
+            Console.WriteLine("O Valor é: " + whileValor);
+            whileValor++;
+        }
+        // do while é a certeza que o processo será executado pelomenos uma vez.
+        int doWhileValor = 0;
+        do
+        {
+            Console.WriteLine("O Valor é: " + doWhileValor);
+            doWhileValor++;
+        }
+        while (doWhileValor <= 10);
+        #endregion
+
+        #region FOR + FOREACH
+
+        for (int i = 0, j = 10; i <= 10; i++, j--)
+        {
+            Console.WriteLine("ÍNDICE I: " + i + ' ' + "ÍNDICE J: " + j);
+        }
+        string[] nomes = { "MARCUS", "CARLOS", "JOÃO VICTOR" };
+        foreach (string nome in nomes)
+        {
+            Console.WriteLine("NOME: " + nome);
+        }
+        #endregion
+
+        #region SEQUÊNCIA DE FIBONACCI
+        int a = 0, b = 1, c = 0;
+        Console.WriteLine("Quantos valores? ");
+        int valores = int.Parse(Console.ReadLine());
+        Console.WriteLine("Sequência de Fibonacci com: " + valores + " valores");
+
+        for (int i = 0; i < valores; i++)
+        {
+            if (i < valores -1)
+            {
+                Console.Write(a+",");
+            }
+            else
+            {
+                Console.Write(a);
+            }            
+            c = a + b;
+            a = b;
+            b = c;
+           // sequencia de Fibonnaci se da a soma dos numeros avançando sempre uma casa. ex.: sequencia de 4 numeros a0+b1=c1
+           // "a" ira avançar uma casa então receberar o valor de "b" a=b e "b" avançara uma casa recebendo o valor de "c" que é o resultado da soma de a+b
+           // ai o siclo se repete mais uma vez a1+b1=c2
+            
+        }
+        #endregion
+
+        Console.ReadKey();
+    }
+    public class Nomes
+    {
+        public string Nome { get; set; }
+    }
+    public class Usuario
+    {
+        public string Nome { get; set; }
+        public int Idade { get; set; }
+    }
+}
