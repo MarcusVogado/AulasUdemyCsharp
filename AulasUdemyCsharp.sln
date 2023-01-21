@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AulasUdemyCsharp", "AulasUdemyCsharp\AulasUdemyCsharp.csproj", "{4309F964-2D63-4AA4-8530-EE361F117695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{875A32F7-B6BC-4AE8-930D-AFD7E08CF750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{875A32F7-B6BC-4AE8-930D-AFD7E08CF750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POO", "POO\POO.csproj", "{FB369B63-C89B-4890-953F-A7FBD408A0CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{875A32F7-B6BC-4AE8-930D-AFD7E08CF750}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{875A32F7-B6BC-4AE8-930D-AFD7E08CF750}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{875A32F7-B6BC-4AE8-930D-AFD7E08CF750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB369B63-C89B-4890-953F-A7FBD408A0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB369B63-C89B-4890-953F-A7FBD408A0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB369B63-C89B-4890-953F-A7FBD408A0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB369B63-C89B-4890-953F-A7FBD408A0CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
