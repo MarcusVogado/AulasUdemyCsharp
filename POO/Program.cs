@@ -35,11 +35,19 @@ class Program
         }
         int valor1 = 100;
         int valorRef = 100;
-
+        //Método Por parâmetros e por referencia
         pessoa1.AumentarValor(valor1);
         pessoa1.AumentarValorRef(ref valorRef);
 
+        // Método com retorno de valores
+        string nomeCompleto= pessoa1.MontarNome("Marcus", "Vogado");
+        Console.WriteLine(nomeCompleto);
+       
+        int codigo=pessoa1.CodigoChar('J');
+        Console.WriteLine(codigo);
 
+        //Sobrecarga de Métodos
+        Console.WriteLine(pessoa1.Comprimentar(nomeCompleto));
         Console.ReadKey();
     }
 }

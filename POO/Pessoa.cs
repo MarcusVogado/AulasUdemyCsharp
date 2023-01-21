@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace POO
 {
     public class Pessoa
-    {
-        
+    {        
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public int AnoDeNascimento{ get; set; }
@@ -31,11 +30,28 @@ namespace POO
             valor += 10;
             Console.WriteLine("Valor Final é: " + valor);
         }
-        //MÉTODO POR REFERÊNCIA
+        //MÉTODO POR REFERÊNCIA O VALOR POR REFERÊNCIA ALTERA O VALOR DA VARIÁVEL ORIGINAL 
         public void AumentarValorRef(ref int valor)
         {
             valor += 15;
             Console.WriteLine("Valor Final é: " + valor);
+        }        
+        //MÉTODO COM RETORNO
+        public string MontarNome(string nome, string sobrenome)
+        {
+            string nomeCompleto=nome+" "+sobrenome;
+            return nomeCompleto;
         }
+        public int CodigoChar(char caractere)
+        {
+            //int codigo=(int)caractere;
+            return caractere;  
+        }
+        public string Comprimentar(string nome)
+        {
+           return ("Olá " + nome);
+        }
+
+        //Sobrecarga de métodos Overloading
     }
 }
