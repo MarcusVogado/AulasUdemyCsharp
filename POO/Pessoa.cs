@@ -45,13 +45,12 @@ namespace POO
         public int CodigoChar(char caractere)
         {
             //int codigo=(int)caractere;
-            return caractere;  
+            return caractere;
         }
+        //Sobrecarga de métodos Overloading
         public string Comprimentar(string nome)
         {
            return ("Olá " + nome);
         }
-
-        //Sobrecarga de métodos Overloading
     }
 }

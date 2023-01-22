@@ -388,7 +388,7 @@ class Program
     operacao:
         Console.WriteLine("INFORME A OPERAÇÃO + - * /");
         char op = char.Parse(Console.ReadLine());
-        double resultado = 0;
+        double resultado;
 
         switch (op)
         {

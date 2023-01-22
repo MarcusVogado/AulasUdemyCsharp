@@ -3,6 +3,8 @@ using System;
 
 class Program
 {
+    //UTILIZANDO DELEGATE
+    delegate void Operacao(int num1, int num2);
     public static void Main(string[] args)
     {
         MinhaClasse mClasse = new MinhaClasse();
@@ -48,6 +50,26 @@ class Program
 
         //Sobrecarga de Métodos
         Console.WriteLine(pessoa1.Comprimentar(nomeCompleto));
-        Console.ReadKey();
+
+        //utilizando o termo This
+        Acessar acesso = new Acessar();
+        bool verificar= acesso.Login("abc123");
+        if (verificar)
+        {
+            Console.WriteLine("Acesso permitido");
+        }
+        else
+        {
+            Console.WriteLine("Acesso Negado");
+        }
+        //DELEGATES
+        Matematica m= new Matematica();
+        Operacao conta = null;
+        conta += m.Somar;
+        conta += m.Subtrair;
+        conta += m.Multiplicar;
+        conta += m.Dividir;
+        conta(15, 10);
+                Console.ReadKey();
     }
 }
