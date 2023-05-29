@@ -64,12 +64,12 @@ class Program
         }
         //DELEGATES
         Matematica m= new Matematica();
-        Operacao conta = null;
+        Operacao conta = null;       
         conta += m.Somar;
         conta += m.Subtrair;
         conta += m.Multiplicar;
         conta += m.Dividir;
         conta(15, 10);
-                Console.ReadKey();
+        Console.ReadKey();
     }
 }
